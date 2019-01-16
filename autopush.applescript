@@ -1,14 +1,14 @@
-set vpnClientName to "mbongardino | engie | knockknock"
-set viscosityWindowName to "Viscosity - " & vpnClientName
-set afterWindowOpenDelay to 1
-
 tell application "Viscosity"
-	if the state of the second connection is not "Connected" then -- connection order based on when they were imported, and not how they are ordered in your viscosity prefs.  I think.
+	set vpnClientName to name of the first connection
+	if the state of the first connection is not "Connected" then -- connection order based on when they were imported, and not how they are ordered in your viscosity prefs.  I think.
 		disconnect vpnClientName
 		delay 0.2
 		connect vpnClientName
 	end if
 end tell
+
+set viscosityWindowName to "Viscosity - " & vpnClientName
+set afterWindowOpenDelay to 1
 
 tell application "System Events"
 	set duoPrompt to a reference to static text "Duo passcode or second factor:" of window viscosityWindowName of application process "Viscosity"
