@@ -2,7 +2,7 @@ tell application "Viscosity"
 	set vpnClientName to name of the first connection
 	if the state of the first connection is not "Connected" then -- connection order based on when they were imported, and not how they are ordered in your viscosity prefs.  I think.
 		disconnect vpnClientName
-		delay 0.2
+		delay 0.7
 		connect vpnClientName
 	end if
 end tell
@@ -14,7 +14,7 @@ tell application "System Events"
 	set duoPrompt to a reference to static text "Duo passcode or second factor:" of window viscosityWindowName of application process "Viscosity"
 	set mfaInputField to a reference to text field of window viscosityWindowName of application process "Viscosity"
 	set okButton to a reference to button "OK" of window viscosityWindowName of application process "Viscosity"
-
+	
 	repeat until exists duoPrompt
 		delay 0.2
 	end repeat
