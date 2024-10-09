@@ -1,11 +1,13 @@
-set the currentAudioSource to (do shell script "/opt/homebrew/bin/SwitchAudioSource -c")
+set desktopSpeakers to "Hi-Res Audio"
+set headPhones to "JDS Labs Element DAC"
+set currentAudioSource to (do shell script "/opt/homebrew/bin/SwitchAudioSource -c")
 
 try
-	if currentAudioSource is equal to "JDS Labs Element DAC" then
-		do shell script "/opt/homebrew/bin/SwitchAudioSource -s \"USB-C to 3.5mm Headphone Jack Adapter\""
+	if currentAudioSource is equal to headPhones then
+		do shell script "/opt/homebrew/bin/SwitchAudioSource -s \"" & desktopSpeakers & "\""
 		display notification "SwitchAudioSource" with title "Desktop Speakers"
 	else
-		do shell script "/opt/homebrew/bin/SwitchAudioSource -s \"JDS Labs Element DAC\""
+		do shell script "/opt/homebrew/bin/SwitchAudioSource -s \"" & headPhones & "\""
 		display notification "SwitchAudioSource" with title "Headphone DAC"
 	end if
 on error
