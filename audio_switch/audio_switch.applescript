@@ -1,4 +1,4 @@
-set desktopSpeakers to "Hi-Res Audio"
+set desktopSpeakers to "USB Audio Device"
 set headPhones to "JDS Labs Element DAC"
 set currentAudioSource to (do shell script "/opt/homebrew/bin/SwitchAudioSource -c")
 
